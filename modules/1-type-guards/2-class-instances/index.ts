@@ -106,6 +106,6 @@ const project: Project = {
 	size: projectSize
 };
 
-setFontSizeOnSelection(project.layers, "20em");
+setFontSizeOnSelection(project.layers, "20px");
 
 render(project);

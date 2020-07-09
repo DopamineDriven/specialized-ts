@@ -39,6 +39,6 @@ const project: Project = {
 	size: projectSize
 };
 
-setFontSize(textLayer, "20em");
+setFontSize(textLayer, "1.5em");
 
 render(project);

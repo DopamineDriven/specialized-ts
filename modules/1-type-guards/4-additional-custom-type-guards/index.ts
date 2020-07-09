@@ -10,7 +10,7 @@ import { render } from "../render";
 
 const projectSize: Size = {
 	width: 512,
-	height: 250
+	height: 512
 };
 
 const textLayer1 = {
@@ -20,7 +20,7 @@ const textLayer1 = {
 	color: "#e8166d",
 	id: "10",
 	rotation: 0,
-	text: "Advanced TypeScript",
+	text: "Jamstack",
 	fontSize: "20px"
 };
 
@@ -31,7 +31,7 @@ const textLayer2 = {
 	color: "blue",
 	id: "30",
 	rotation: 0,
-	text: "Is powerful",
+	text: "Baby Jamstack",
 	fontSize: "10px"
 };
 
@@ -41,7 +41,7 @@ const imageLayer = {
 	position: { x: 0, y: 0 },
 	id: "20",
 	rotation: 0,
-	src: "ps-dark.png",
+	src: "Joe.png",
 	maxBounds: { width: projectSize.width }
 };
 
@@ -86,7 +86,7 @@ const project: Project = {
 	size: projectSize
 };
 
-setFontSizeOnSelection(project.layers, "20em");
-setSrcOnSelection(project.layers, "ps-dark.png");
+setFontSizeOnSelection(project.layers, "1.5em");
+setSrcOnSelection(project.layers, "Joe.png");
 
 render(project);
