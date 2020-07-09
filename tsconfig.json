@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "CommonJS",
+        "declaration": true,
+        "sourceMap": true,
+        "outDir": "./.ts-out",
+        "importHelpers": true,
+        "strict": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    }
+}
