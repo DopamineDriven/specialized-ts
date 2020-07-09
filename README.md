@@ -84,3 +84,12 @@
       }
     }
 ```
+## Three levels of Differentiation
+- (1) typeof keyword
+    - Differentiate between value types
+- (2) instanceof keyword
+    - Differentiate between instances of classes
+- (3) user-defined type guards
+    - Most powerful of the three
+    - Expression that performs a runtime check that guarantees the type in some scope
+        - https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types
