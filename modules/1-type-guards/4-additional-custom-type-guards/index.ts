@@ -65,11 +65,28 @@ const setFontSizeOnSelection = (layers: Layer[], value: string | number) => {
 	});
 };
 
+const isImageLayer = (layer: Layer): layer is ImageLayer => {
+	return layer.type === LayerType.Image;
+};
+
+const setSrc = (layer: ImageLayer, value: string) => {
+	layer.src = value;
+};
+
+const setSrcOnSelection = (layers: Layer[], value: string) => {
+	layers.forEach((layer) => {
+		if (isImageLayer(layer)) {
+			setSrc(layer, value);
+		}
+	});
+};
+
 const project: Project = {
 	layers: [imageLayer, textLayer1, textLayer2],
 	size: projectSize
 };
 
 setFontSizeOnSelection(project.layers, "20em");
+setSrcOnSelection(project.layers, "ps-dark.png");
 
 render(project);
