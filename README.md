@@ -1,4 +1,5 @@
 # Specialized-TypeScript
+- https://code.visualstudio.com/docs/editor/debugging#_launch-configurations
 
 ## Differentiating between types
 
@@ -99,3 +100,8 @@ variableName instanceof ClassName
     - Most powerful of the three
     - Expression that performs a runtime check that guarantees the type in some scope
         - https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types
+```ts
+const isX = (var): var is TheType => {};
+```
+- assertion is a return function
+    - variable passed to it is of a specific type 

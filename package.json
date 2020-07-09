@@ -8,7 +8,10 @@
 	"private": true,
 	"engines": {
 		"node": "14.5.0"
-	},
+  },
+  "scripts": {
+    "run-generator-modules-1": "cross-env ROOT=./ ts-node ./modules/1-type-guards/4-additional-custom-type-guards.ts"
+  },
 	"dependencies": {
 		"canvas": "^2.6.1",
 		"cross-env": "^7.0.2",
