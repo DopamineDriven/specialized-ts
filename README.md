@@ -87,8 +87,14 @@
 ## Three levels of Differentiation
 - (1) typeof keyword
     - Differentiate between value types
+```ts
+typeof variable === "string" | "number" | ...
+```
 - (2) instanceof keyword
     - Differentiate between instances of classes
+```ts
+instanceof variable === "string" | "number" | ...
+```
 - (3) user-defined type guards
     - Most powerful of the three
     - Expression that performs a runtime check that guarantees the type in some scope
