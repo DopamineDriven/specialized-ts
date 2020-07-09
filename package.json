@@ -1,0 +1,25 @@
+{
+	"name": "specialized-ts",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/DopamineDriven/specialized-ts.git",
+	"author": "Andrew Ross <andrew.simpson.ross@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"engines": {
+		"node": "14.5.0"
+	},
+	"dependencies": {
+		"canvas": "^2.6.1",
+		"cross-env": "^7.0.2",
+		"image-size": "^0.8.3",
+		"open": "^7.0.4",
+		"probe-image-size": "^5.0.0",
+		"ts-node": "^8.10.2",
+		"tslib": "^2.0.0",
+		"typescript": "^3.9.6"
+	},
+	"devDependencies": {
+		"@types/node": "^14.0.20"
+	}
+}
