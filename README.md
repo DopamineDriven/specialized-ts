@@ -93,7 +93,7 @@ typeof variable === "string" | "number" | ...
 - (2) instanceof keyword
     - Differentiate between instances of classes
 ```ts
-instanceof variable === "string" | "number" | ...
+variableName instanceof ClassName
 ```
 - (3) user-defined type guards
     - Most powerful of the three
