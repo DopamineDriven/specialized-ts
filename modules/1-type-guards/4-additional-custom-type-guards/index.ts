@@ -9,30 +9,30 @@ import {
 import { render } from "../render";
 
 const projectSize: Size = {
-	width: 512,
-	height: 512
+	width: 960,
+	height: 650
 };
 
 const textLayer1 = {
 	type: LayerType.Text,
 	maxWidth: 1000,
 	position: { x: 128, y: 208 },
-	color: "#e8166d",
+	color: "#B3DDF2",
 	id: "10",
 	rotation: 0,
-	text: "Jamstack",
-	fontSize: "20px"
+	text: "Such Jam",
+	fontSize: "30px"
 };
 
 const textLayer2 = {
 	type: LayerType.Text,
 	maxWidth: 1000,
-	position: { x: 128, y: 240 },
-	color: "blue",
+	position: { x: 140, y: 250 },
+	color: "#FF0000",
 	id: "30",
 	rotation: 0,
-	text: "Baby Jamstack",
-	fontSize: "10px"
+	text: "Much Stack",
+	fontSize: "30px"
 };
 
 const imageLayer = {
@@ -87,6 +87,6 @@ const project: Project = {
 };
 
 setFontSizeOnSelection(project.layers, "1.5em");
-setSrcOnSelection(project.layers, "Joe.png");
+setSrcOnSelection(project.layers, "doge.jpg");
 
 render(project);
