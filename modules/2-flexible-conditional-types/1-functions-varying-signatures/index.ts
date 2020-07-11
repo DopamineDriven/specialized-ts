@@ -1,10 +1,12 @@
 import {
 	ImageLayer,
+	ImageMeta,
 	Layer,
 	LayerType,
 	Project,
 	Size,
-	TextLayer
+	TextLayer,
+	TextMeta
 } from "../types";
 import { render } from "../render";
 
