@@ -120,7 +120,8 @@ export interface ImageMeta {
 	format: "jpg" | "png";
 }
 ```
-- incorporate functions with varying signatures
+### Incorporate Functions with varying signatures
+- overload functions
 ```ts
 function setMeta(layer: TextLayer, meta: TextMeta): void;
 function setMeta(layer: ImageLayer, meta: ImageMeta): void;
@@ -141,4 +142,18 @@ setMeta(textLayer, {
 	licenseExpiration: new Date(2025, 7, 10)
 });
 ```
+
+### Type of a Param dependant on the Type of Another
 - Cannot use conditional types without generics
+```ts
+function setMeta<T extends TextLayer | ImageLayer>(
+	layer: T,
+	meta: T extends TextLayer ? TextMeta : ImageMeta
+): void {
+	layer.meta = meta;
+};
+```
+- deciphering the snippet above for param meta
+    - if T extends TextLayer 
+        - then meta will be TextMeta
+        - else meta will be ImageMeta
