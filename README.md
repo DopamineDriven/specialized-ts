@@ -105,3 +105,40 @@ const isX = (var): var is TheType => {};
 ```
 - assertion is a return function
     - variable passed to it is of a specific type 
+
+--------------------------------------------
+## Flexibility with Conditional Types
+- add two new interfaces to types.ts
+```ts
+export interface TextMeta {
+	fontFoundry: string;
+	licenseExpiration: Date;
+}
+
+export interface ImageMeta {
+	origin: string;
+	format: "jpg" | "png";
+}
+```
+- incorporate functions with varying signatures
+```ts
+function setMeta(layer: TextLayer, meta: TextMeta): void;
+function setMeta(layer: ImageLayer, meta: ImageMeta): void;
+function setMeta(
+	layer: ImageLayer | TextLayer,
+	meta: ImageMeta | TextMeta
+): void {
+	layer.meta = meta;
+}
+
+setMeta(imageLayer, {
+	format: "jpg",
+	origin: "Download"
+});
+
+setMeta(textLayer, {
+	fontFoundry: "OS stock",
+	licenseExpiration: new Date(2025, 7, 10)
+});
+```
+- Cannot use conditional types without generics

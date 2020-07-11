@@ -1,6 +1,7 @@
 import {
 	ImageLayer,
 	ImageMeta,
+	Layer,
 	LayerType,
 	Project,
 	Size,
@@ -33,7 +34,7 @@ const imageLayer: ImageLayer = {
 	src: "doge.jpg",
 	maxBounds: { width: projectSize.width }
 };
-// when using overloads must specify the return type
+// when using overloads must specify the return type 
 function setMeta(layer: TextLayer, meta: TextMeta): void;
 function setMeta(layer: ImageLayer, meta: ImageMeta): void;
 function setMeta(
