@@ -1,4 +1,5 @@
 # Specialized-TypeScript
+
 - https://code.visualstudio.com/docs/editor/debugging#_launch-configurations
 
 ## Differentiating between types
@@ -85,30 +86,41 @@
       }
     }
 ```
+
 ## Three levels of Differentiation
+
 - (1) typeof keyword
-    - Differentiate between value types
+  - Differentiate between value types
+
 ```ts
 typeof variable === "string" | "number" | ...
 ```
+
 - (2) instanceof keyword
-    - Differentiate between instances of classes
+  - Differentiate between instances of classes
+
 ```ts
-variableName instanceof ClassName
+variableName instanceof ClassName;
 ```
+
 - (3) user-defined type guards
-    - Most powerful of the three
-    - Expression that performs a runtime check that guarantees the type in some scope
-        - https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types
+  - Most powerful of the three
+  - Expression that performs a runtime check that guarantees the type in some scope
+    - https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types
+
 ```ts
 const isX = (var): var is TheType => {};
 ```
-- assertion is a return function
-    - variable passed to it is of a specific type 
 
---------------------------------------------
+- assertion is a return function
+  - variable passed to it is of a specific type
+
+---
+
 ## Flexibility with Conditional Types
+
 - add two new interfaces to types.ts
+
 ```ts
 export interface TextMeta {
 	fontFoundry: string;
@@ -120,8 +132,11 @@ export interface ImageMeta {
 	format: "jpg" | "png";
 }
 ```
+
 ### Incorporate Functions with varying signatures
+
 - overload functions
+
 ```ts
 function setMeta(layer: TextLayer, meta: TextMeta): void;
 function setMeta(layer: ImageLayer, meta: ImageMeta): void;
@@ -144,16 +159,67 @@ setMeta(textLayer, {
 ```
 
 ### Type of a Param dependant on the Type of Another
+
 - Cannot use conditional types without generics
+
 ```ts
 function setMeta<T extends TextLayer | ImageLayer>(
 	layer: T,
 	meta: T extends TextLayer ? TextMeta : ImageMeta
 ): void {
 	layer.meta = meta;
-};
+}
 ```
+
 - deciphering the snippet above for param meta
-    - if T extends TextLayer 
-        - then meta will be TextMeta
-        - else meta will be ImageMeta
+  - if T extends TextLayer
+    - then meta will be TextMeta
+    - else meta will be ImageMeta
+
+### Function return type dependant on Param types
+
+- Factory function usage
+
+```ts
+type FactoryLayer<T> = T extends LayerType.Text ? TextLayer : ImageLayer;
+
+function createLayer<T extends LayerType>(type: T): FactoryLayer<T> {
+	if (type === LayerType.Text) {
+		return {
+			color: "blue",
+			fontSize: "30px",
+			id: new Date().toISOString(),
+			maxWidth: 1000,
+			position: { x: 250, y: 100 },
+			rotation: 0,
+			text: "Advanced TypeScript",
+			type: LayerType.Text
+		} as FactoryLayer<T>;
+	}
+
+	return {
+		id: new Date().toISOString(),
+		maxBounds: { width: 400 },
+		position: { x: 0, y: 0 },
+		rotation: 0,
+		src: "doge.jpg",
+		type: LayerType.Image
+	} as FactoryLayer<T>;
+}
+
+const textLayer = createLayer(LayerType.Text);
+textLayer.text = "Advanced TypeScript with Doge";
+textLayer.fontSize = "30px";
+textLayer.position.y += 20;
+
+const project: Project = {
+	layers: [createLayer(LayerType.Image), textLayer],
+	size: projectSize
+};
+
+render(project);
+```
+
+- Note:
+  - Function overloading (as seen previously) is a more idiomatic approach to this problem
+  - Solid example of the power of conditional types however

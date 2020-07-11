@@ -1,7 +1,6 @@
 import {
 	ImageLayer,
 	ImageMeta,
-	Layer,
 	LayerType,
 	Project,
 	Size,
