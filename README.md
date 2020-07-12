@@ -223,3 +223,6 @@ render(project);
 - Note:
   - Function overloading (as seen previously) is a more idiomatic approach to this problem
   - Solid example of the power of conditional types however
+
+  -----------------------------------
+  ## Generating complex types based on existing types
